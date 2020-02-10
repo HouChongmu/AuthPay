@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yolyn.authpay.db.mapper.UserMapper">
+    <resultMap id="userMapper" type="com.yolyn.authpay.db.pojo.User">
+        <id column="user_name" property="userName"/>
+        <result column="phone_no" property="phoneNo"/>
+        <result column="id_no" property="idNo"/>
+    </resultMap>
+    <!--1. 简单select-->
+    <select id="selectByIdNo" resultMap="userMapper">
+    select * from t_user where id_no = #{idNo}
+  </select>
+
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yolyn.authpay.db.mapper.UserAuthMapper">
+    <resultMap id="userAuth" type="com.yolyn.authpay.db.pojo.UserAuth">
+        <id column="user_name" property="userName"/>
+        <result column="card_no" property="cardNo"/>
+        <result column="auth_status" property="authStatus"/>
+        <result column="phone_no" property="phoneNo"/>
+        <result column="id_no" property="idNo"/>
+    </resultMap>
+    <!--1. 简单select-->
+    <select id="selectUserAuth" resultMap="userAuth">
+    select * from t_user_auth where card_no = #{cardNo} and id_no = #{idNo};
+  </select>
+    <!--2. 插入userAuth-->
+    <insert id="insertUserAuth" parameterType="com.yolyn.authpay.db.pojo.UserAuth">
+    insert into t_user_auth (user_name,card_no,auth_status,phone_no,id_no)
+     values (#{userName},#{cardNo},#{authStatus},#{phoneNo},#{idNo});
+</insert>
+    <!--3. 更新userAuth-->
+    <update id="updateUserAuth" parameterType="com.yolyn.authpay.db.pojo.UserAuth">
+        update t_user_auth set auth_status = #{authStatus} where id_no=#{idNo} and card_no=#{cardNo};
+    </update>
+</mapper>

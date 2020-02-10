@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="jdbc.properties"/>
+    <!--<typeAliases>-->
+        <!--<typeAlias alias="employee" type="Employee"/>-->
+    <!--</typeAliases> -->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <!--配置连接池-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${database.driver}"/>
+                <property name="url" value="${database.url}"/>
+                <property name="username" value="${database.username}"/>
+                <property name="password" value="${database.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--引入我们自己写的每一个接口的实现文件名称-->
+    <mappers>
+        <!--resource标识从类路径下找资源-->
+        <!--<package name="mapper"/>-->
+        <mapper resource="mapper/UserCardMapper.xml"/>
+        <mapper resource="mapper/UserMapper.xml"/>
+        <mapper resource="mapper/UserAuthMapper.xml"/>
+    </mappers>
+</configuration>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yolyn.authpay.db.mapper.PayOrderMapper">
+    <resultMap id="payOrder" type="com.yolyn.authpay.db.pojo.PayOrder">
+        <id column="order_no" property="orderNo"/>
+        <result column="merchant_order_no" property="merchantOrderNo"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_id_no" property="userIdNo"/>
+        <result column="user_acct_no" property="userAcctNo"/>
+        <result column="phone_no" property="phoneNo"/>
+        <result column="amount" property="amount"/>
+    </resultMap>
+    <sql id="orderCols">
+        order_no,merchant_order_no,user_name,user_id_no,user_acct_no,phone_no,amount
+    </sql>
+    <!--1. 简单select-->
+    <select id="selectByOrderNo" resultMap="payOrder">
+    select * from t_pay_order where order_no = #{orderNo}
+  </select>
+    <insert id="insertPayOrder" parameterType="com.yolyn.authpay.db.pojo.PayOrder">
+        insert into t_pay_order (<include refid="orderCols"/>)
+        values (#{orderNo},#{merchantOrderNo},#{userName},#{userIdNo},#{userAcctNo},#{phoneNo},#{amount})
+    </insert>
+</mapper>

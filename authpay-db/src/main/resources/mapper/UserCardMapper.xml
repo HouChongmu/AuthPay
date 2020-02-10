@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yolyn.authpay.db.mapper.UserCardMapper">
+    <resultMap id="userCardMapper" type="com.yolyn.authpay.db.pojo.UserCard">
+        <id column="card_no" property="cardNo"/>
+        <result column="user_name" property="userName"/>
+        <result column="phone_no" property="phoneNo"/>
+        <result column="id_no" property="idNo"/>
+        <result column="amount" property="amount"/>
+    </resultMap>
+    <!--1. 简单select-->
+    <select id="selectByCardNo" resultMap="userCardMapper">
+    select * from t_user_card where card_no = #{cardNo};
+  </select>
+    <update id="updateUserCardBalance" parameterType="com.yolyn.authpay.db.pojo.UserCard">
+    update t_user_card set amount = #{amount} where card_no = #{cardNo};
+</update>
+</mapper>
