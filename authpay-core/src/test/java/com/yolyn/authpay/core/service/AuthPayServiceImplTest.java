@@ -1,5 +1,7 @@
 package com.yolyn.authpay.core.service;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.yolyn.authpay.api.IAuthPayService;
 import com.yolyn.authpay.api.request.PayApplyReq;
 import com.yolyn.authpay.api.response.PayApplyResp;
@@ -29,7 +31,12 @@ public class AuthPayServiceImplTest {
         PayApplyReq request = new PayApplyReq();
         request.setAmount("1324");
         request.setUserName("侯允林");
-        ResultModel<PayApplyResp> rm= authPayService.payRequest(request);
-        System.out.println(rm);
+        request.setPhoneNo("18256158248");
+        request.setUserIdNo("34082519960408105X");
+        request.setUserAcctNo("123456");
+        request.setOpponentAcctNo("1234565");
+        request.setMerchantOrderNo("123456789");
+//        ResultModel<PayApplyResp> rm= authPayService.payRequest(request);
+        System.out.println(JSONObject.toJSONString(request));
     }
 }

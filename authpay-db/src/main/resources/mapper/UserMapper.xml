@@ -9,7 +9,7 @@
         <result column="id_no" property="idNo"/>
     </resultMap>
     <!--1. 简单select-->
-    <select id="selectByIdNo" resultMap="userMapper">
+    <select id="selectByIdNo" resultMap="userMapper" parameterType="java.lang.String">
     select * from t_user where id_no = #{idNo}
   </select>
 
