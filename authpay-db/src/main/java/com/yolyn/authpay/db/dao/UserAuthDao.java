@@ -36,6 +36,7 @@ public class UserAuthDao {
         SqlSession sqlSession=SqlSessionUtil.getSqlSession();
         UserAuthMapper userAuthMapper = sqlSession.getMapper(UserAuthMapper.class);
         int num=userAuthMapper.insertUserAuth(userAuth);
+        sqlSession.commit();
         sqlSession.close();
         return num;
     }
@@ -49,6 +50,7 @@ public class UserAuthDao {
         SqlSession sqlSession=SqlSessionUtil.getSqlSession();
         UserAuthMapper userAuthMapper = sqlSession.getMapper(UserAuthMapper.class);
         int num=userAuthMapper.updateUserAuth(userAuth);
+        sqlSession.commit();
         sqlSession.close();
         return num;
     }

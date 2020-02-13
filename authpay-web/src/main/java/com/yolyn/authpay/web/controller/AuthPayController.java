@@ -27,7 +27,7 @@ public class AuthPayController {
     public ResultModel authPayReceiver(@RequestBody PayApplyReq payApplyReq){
         return authPayFacade.handleApply(payApplyReq);
     }
-    @PostMapping(value = "/comfirm")
+    @PostMapping(value = "/confirm")
     public ResultModel authPayConfirm(@RequestBody PayConfirmReq payConfirmReq){
         return authPayFacade.handleConfirm(payConfirmReq);
     }

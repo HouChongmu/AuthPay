@@ -25,6 +25,7 @@ public class UserCardDao {
         SqlSession sqlSession = SqlSessionUtil.getSqlSession();
         UserCardMapper userCardMapper = sqlSession.getMapper(UserCardMapper.class);
         UserCard userCard = userCardMapper.selectByCardNo(cardNo);
+        sqlSession.close();
         return userCard;
     }
 
@@ -37,6 +38,7 @@ public class UserCardDao {
         SqlSession sqlSession=SqlSessionUtil.getSqlSession();
         UserCardMapper userCardMapper=sqlSession.getMapper(UserCardMapper.class);
         int num=userCardMapper.updateUserCardBalance(userCard);
+        sqlSession.commit();
         sqlSession.close();
         return num;
 }

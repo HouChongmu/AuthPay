@@ -11,9 +11,10 @@
         <result column="user_acct_no" property="userAcctNo"/>
         <result column="phone_no" property="phoneNo"/>
         <result column="amount" property="amount"/>
+        <result column="order_status" property="orderStatus"/>
     </resultMap>
     <sql id="orderCols">
-        order_no,merchant_order_no,user_name,user_id_no,user_acct_no,phone_no,amount
+        order_no,merchant_order_no,user_name,user_id_no,user_acct_no,phone_no,amount,order_status
     </sql>
     <!--1. 简单select-->
     <select id="selectByOrderNo" resultMap="payOrder">
@@ -21,6 +22,6 @@
   </select>
     <insert id="insertPayOrder" parameterType="com.yolyn.authpay.db.pojo.PayOrder">
         insert into t_pay_order (<include refid="orderCols"/>)
-        values (#{orderNo},#{merchantOrderNo},#{userName},#{userIdNo},#{userAcctNo},#{phoneNo},#{amount})
+        values (#{orderNo},#{merchantOrderNo},#{userName},#{userIdNo},#{userAcctNo},#{phoneNo},#{amount},#{orderStatus})
     </insert>
 </mapper>

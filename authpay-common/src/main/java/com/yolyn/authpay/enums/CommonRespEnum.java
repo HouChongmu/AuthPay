@@ -16,7 +16,10 @@ public enum CommonRespEnum {
     CARD_NOT_EXIST("020001", "银行卡不存在"),
     CARD_LACK_BALANCE("020002", "余额不足"),
     //系统错误
-    SYSTEM_ERROR("FE9999", "系统错误"),;
+    SYSTEM_ERROR("FE9999", "系统错误"),
+    //验证码相关
+    VERIFYCODE_ERROR("030001","验证码错误"),
+    ;
     private final String code;
     private final String msg;
 

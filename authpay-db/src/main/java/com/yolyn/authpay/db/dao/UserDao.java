@@ -13,10 +13,11 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class UserDao {
-    public User selectByUserName(String userName) {
+    public User selectByUserName(String idNo) {
         SqlSession sqlSession = SqlSessionUtil.getSqlSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        User user = userMapper.selectByIdNo(userName);
+        User user = userMapper.selectByIdNo(idNo);
+        sqlSession.close();
         return user;
     }
 }

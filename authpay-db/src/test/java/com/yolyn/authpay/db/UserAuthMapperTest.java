@@ -19,4 +19,18 @@ public class UserAuthMapperTest {
 //        UserAuth userAuth=userAuthMapper.selectUserAuth("侯允林");
 //        System.out.println(userAuth);
     }
+    @Test
+    public void insert(){
+        SqlSession sqlSession=SqlSessionUtil.getSqlSession();
+        UserAuthMapper userAuthMapper=sqlSession.getMapper(UserAuthMapper.class);
+        UserAuth userAuth=new UserAuth();
+        userAuth.setUserName("婧婧");
+        userAuth.setAuthStatus("0");
+        userAuth.setPhoneNo("13866077233");
+        userAuth.setIdNo("123456");
+        userAuth.setCardNo("465789");
+        userAuthMapper.insertUserAuth(userAuth);
+        sqlSession.commit();
+        sqlSession.close();
+    }
 }

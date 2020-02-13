@@ -29,7 +29,6 @@ public class AspectHandler {
     //指定包下的任意类，任意方法
     @Before("execution(* com.yolyn.authpay.core.service..*.*(..))")
     private void invokeLog() {
-        logger.info("被调用了");
     }
 
     @Pointcut("@annotation(params)")
@@ -52,7 +51,7 @@ public class AspectHandler {
         } catch (CommonException e) {
             //自定义异常
             resultModel = new ResultModel(e.getCode(), e.getMsg());
-            logger.error(e);
+            logger.error(Throwables.getStackTraceAsString(e));
         } catch (Throwable e) {
             //系统异常
             resultModel = new ResultModel();

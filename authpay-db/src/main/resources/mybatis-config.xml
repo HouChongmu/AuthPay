@@ -25,5 +25,6 @@
         <mapper resource="mapper/UserCardMapper.xml"/>
         <mapper resource="mapper/UserMapper.xml"/>
         <mapper resource="mapper/UserAuthMapper.xml"/>
+        <mapper resource="mapper/PayOrderMapper.xml"/>
     </mappers>
 </configuration>

@@ -17,6 +17,7 @@ public class PayOrderDao {
         SqlSession sqlSession=SqlSessionUtil.getSqlSession();
         PayOrderMapper payOrderMapper=sqlSession.getMapper(PayOrderMapper.class);
         int num=payOrderMapper.insertPayOrder(payOrder);
+        sqlSession.commit();
         sqlSession.close();
         return  num;
     }

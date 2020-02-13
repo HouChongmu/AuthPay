@@ -11,8 +11,8 @@
         <result column="id_no" property="idNo"/>
     </resultMap>
     <!--1. 简单select-->
-    <select id="selectUserAuth" resultMap="userAuth">
-    select * from t_user_auth where card_no = #{cardNo} and id_no = #{idNo};
+    <select id="selectUserAuth" resultMap="userAuth" parameterType="java.lang.String">
+    select * from t_user_auth where id_no = #{idNo} and card_no = #{cardNo};
   </select>
     <!--2. 插入userAuth-->
     <insert id="insertUserAuth" parameterType="com.yolyn.authpay.db.pojo.UserAuth">

@@ -25,8 +25,13 @@ public class PayOrder {
      * 用户姓名
      */
     private String userName;
+    /**
+     * 订单状态
+     */
+    private String orderStatus;
     private String userIdNo;
     private String userAcctNo;
     private String phoneNo;
     private String amount;
+    private String opponentAcctNo;
 }

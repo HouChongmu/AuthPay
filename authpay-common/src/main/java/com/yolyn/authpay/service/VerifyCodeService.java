@@ -69,7 +69,7 @@ public class VerifyCodeService {
      */
     public boolean checkVerifyCode(String user, String verifyCode) {
         String code = jedis.get(user);
-        if (code != null && verifyCode.equals(code)) {
+        if (null!=code && verifyCode.equals(code)) {
             return true;
         } else {
             return false;
